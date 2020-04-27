@@ -1,0 +1,78 @@
+[System]
+Name='123180092'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=18
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Juru_Masak'
+Range=[0 10]
+NumMFs=2
+MF1='Senior':'gaussmf',[2.052 0.084]
+MF2='Junior':'gaussmf',[1.77 5]
+
+[Input2]
+Name='Porsi'
+Range=[0 10]
+NumMFs=3
+MF1='Sedikit':'gaussmf',[1.769 -1.388e-16]
+MF2='Pas':'gaussmf',[1.494 5]
+MF3='Banyak':'gaussmf',[1.769 10]
+
+[Input3]
+Name='Kualitas_Bahan'
+Range=[0 10]
+NumMFs=3
+MF1='Rendah':'trimf',[0.0132275132275135 2.1 3.98]
+MF2='Sedang':'trimf',[3.03 4.96 6.97089947089947]
+MF3='Tinggi':'trimf',[6.02 7.95 9.93386243386243]
+
+[Output1]
+Name='Rasa'
+Range=[0 10]
+NumMFs=3
+MF1='Tidak_Enak':'trimf',[0 1.5 3]
+MF2='Enak':'trimf',[3 5 7]
+MF3='Sangat_Enak':'trimf',[7 8.5 10]
+
+[Output2]
+Name='Peminat'
+Range=[0 10]
+NumMFs=2
+MF1='Sedikit':'gaussmf',[4.168 -1.39e-16]
+MF2='Banyak':'gaussmf',[4.30278107817872 10]
+
+[Output3]
+Name='Harga_Makanan'
+Range=[0 1]
+NumMFs=3
+MF1='Murah':'gaussmf',[0.1769 -1.388e-17]
+MF2='Sedang':'gaussmf',[0.1769 0.5]
+MF3='Mahal':'gaussmf',[0.1769 1]
+
+[Rules]
+1 1 1, 2 1 1 (1) : 1
+1 1 2, 2 1 2 (1) : 2
+1 1 3, 3 2 3 (1) : 2
+1 2 1, 2 2 2 (1) : 2
+1 2 2, 2 2 3 (1) : 2
+1 2 3, 3 2 3 (1) : 2
+1 3 1, 2 2 2 (1) : 2
+1 3 2, 3 2 3 (1) : 2
+1 3 3, 3 2 3 (1) : 2
+2 1 1, 1 0 1 (1) : 2
+2 1 2, 2 2 1 (1) : 2
+2 1 3, 2 2 2 (1) : 2
+2 2 1, 1 1 1 (1) : 2
+2 2 2, 2 1 2 (1) : 2
+2 2 3, 3 2 2 (1) : 2
+2 3 1, 2 1 1 (1) : 2
+2 3 2, 2 2 1 (1) : 2
+2 3 3, 3 2 3 (1) : 2
